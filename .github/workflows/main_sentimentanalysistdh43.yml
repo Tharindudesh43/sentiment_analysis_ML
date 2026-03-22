@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - SentimentAnalysistdh43
+name: Build and deploy Python app to Azure Web App - sentimentanalysistdh43
 
 on:
   push:
@@ -63,14 +63,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CDCABEFE3FAC4518A2208EBB7E65EF89 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_98034A0BFBA84D1CB08B5146AED1757E }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_88BE73C523914D23B9BD5DEEC339AC88 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_802D22469D1C433797D902132918F851 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4DD98CCF2CEA4346BE6509BDBCD15B22 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_50B3F209E56144BAA08AF558CFF820B1 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'SentimentAnalysistdh43'
+          app-name: 'sentimentanalysistdh43'
           slot-name: 'Production'
           
