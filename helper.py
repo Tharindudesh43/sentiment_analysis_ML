@@ -3,21 +3,28 @@ import pandas as pd
 import re
 import string
 import pickle
+import os
 
 from nltk.stem import PorterStemmer
 ps = PorterStemmer()
 
-#load model
-with open('static/model/model.pickle','rb') as file:
-    model =  pickle.load(file)
+# Get base directory (VERY IMPORTANT)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load model
+model_path = os.path.join(BASE_DIR, 'static', 'model', 'model.pickle')
+with open(model_path, 'rb') as file:
+    model = pickle.load(file)
 
 
-#load stopwords
-with open('static/model/corpora/stopwords/english','r') as file:
+# Load stopwords
+stopwords_path = os.path.join(BASE_DIR, 'static', 'model', 'corpora', 'stopwords', 'english')
+with open(stopwords_path, 'r') as file:
     sw = file.read().splitlines()
 
-#load vocabulary
-vocab = pd.read_csv('static/model/vocabulary.txt',header=None)
+# Load vocabulary
+vocab_path = os.path.join(BASE_DIR, 'static', 'model', 'vocabulary.txt')
+vocab = pd.read_csv(vocab_path, header=None)
 tokens = vocab[0].tolist()
 
 def remove_punctuations(text):
