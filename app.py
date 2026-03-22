@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request,redirect
 from helper import preprocessing,get_prediction,vectorization
 from logger import logging
+import os
 
 app = Flask(__name__)
 
@@ -45,5 +46,5 @@ def my_post():
     
     return redirect(request.url)
 
-if __name__ == __name__:
+if __name__ == "__main__":
     app.run()
