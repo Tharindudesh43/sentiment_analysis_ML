@@ -44,7 +44,8 @@ def my_post():
 
     reviews.insert(0,text)
     
-    return redirect(request.url)
+    return redirect("/")
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))  # Heroku dynamic port
+    app.run(host="0.0.0.0", port=port, debug=False)
